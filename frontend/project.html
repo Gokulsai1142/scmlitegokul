@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,8 +10,8 @@
 <body>
   <div class="container">
     <nav class="sidebar">
-     
- 
+      
+
         <ul class="nav-top">
           <li class="active"><a href="dashboard.html"><i class="fas fa-chart-line"></i><span> Dashboard</span></a></li>
           <li><a href="account.html"><i class="fas fa-user-circle"></i> <span> My Account</span></a></li>
@@ -24,13 +24,13 @@
           <li class="logout"><a href="index.html" onclick="logout()"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
         </ul>
       </nav>
- 
+
     <div class="main-content">
- 
+
         <div class="main-header">
             <h1 id="Welcome">Welcome to SCMXpert Lite</h1>
           </div>
- 
+
         <section class="main-section">
           <div class="left-panel">
             <a href="new_shipment.html">
@@ -44,23 +44,23 @@
           </div>
         </section>
       </div>
-     
+      
   </div>
- 
+
     <script>
         function getToken() {
           return localStorage.getItem("access_token"); // Assuming you store the token in localStorage
         }
- 
+
         document.addEventListener("DOMContentLoaded", function() {
           const userName = localStorage.getItem("user_name"); // Assuming you store the user name in localStorage
-          console.log("User  Name:", userName);
+          console.log("User  Name:", userName); 
           if (userName) {
             document.getElementById("Welcome").textContent = `Hi ${userName}, Welcome to SCMXpert Lite`;
           } else {
             console.error("User  name not found in localStorage");
           }
- 
+
           const role = localStorage.getItem("user_role"); // Assuming you store the user role in localStorage
           if (role === "admin") {
             const adminToolsItem = document.getElementById("admin-tools-item");
@@ -74,13 +74,13 @@
               // Clear client-side storage
               localStorage.clear();
               sessionStorage.clear();
-             
+              
               // Call backend logout
               await fetch('/auth/logout', {
                 method: 'GET',
                 credentials: 'include' // Important for cookie clearing
               });
-             
+              
               // Redirect to login page
               window.location.href = '/frontend/index.html';
             } catch (error) {
@@ -88,7 +88,11 @@
               window.location.href = '/frontend/index.html';
             }
           }
- 
+  
   </script>
- 
+
 </body>
+
+
+
+</html>
